@@ -13,7 +13,7 @@ python >= 3.6
 ```
 {
     "abspath" : "\\",       #文件主目录
-	  "smb": false,           #是否为smb共享文件
+    "smb": false,           #是否为smb共享文件
     "delfiletype":".torrent",   #要删除的文件后缀
     "server_ip" : "",           #smb共享主机ip地址
     "username" : "",            #用户名                
