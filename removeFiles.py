@@ -14,7 +14,7 @@ dellist = []
 conn = None
 smbflag = True              #是否启用smb连接
 
-def get_del_files(server_ip, username, password, my_name, remote_name):
+def get_del_files(server_ip, username, password):
     if smbflag:
         sharelist = conn.listPath(servername,abspath)
         for i in sharelist:
@@ -47,7 +47,6 @@ def init():
     remote_name = setting["remote_name"]
     servername = setting["servername"]
     smbflag = setting["smb"]
-    print(smbflag, type(smbflag))
 
 def solveDir(servername):
     if len(Dirlist)==0:
@@ -92,9 +91,13 @@ if __name__ == "__main__":
     if smbflag:
         conn = SMBConnection(username, password, "", "", use_ntlm_v2=True)    #is_direct_tcp=True,默认为当direct_tcp=True时，port需要445。当它是False时，端口应该是139
         assert conn.connect(server_ip, 445)
-    filelist = get_del_files(server_ip, username, password, my_name, remote_name)
+    filelist = get_del_files(server_ip, username, password)
     for i in filelist:
         print(i)
+    if smbflag:
+        print(f"文件目录为: \\\{remote_name}\\{servername}{abspath}")
+    else :
+        print(f"文件目录为：{abspath}")
     print(f"共{len(filelist)}个文件.")
     delmethod()
     if smbflag:
