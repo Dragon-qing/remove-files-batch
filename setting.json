@@ -1,0 +1,11 @@
+{
+    "abspath" : "\\",
+	"smb": false,
+    "delfiletype":"文件名后缀",
+    "server_ip" : "",             
+    "username" : "",                            
+    "password" : "" ,                           
+    "my_name" : "本机域名" ,                          
+    "remote_name" : "远程主机名" ,                
+    "servername" : "共享根文件夹" 
+}
